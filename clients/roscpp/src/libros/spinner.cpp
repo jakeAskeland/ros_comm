@@ -49,7 +49,7 @@ void SingleThreadedSpinner::spin(CallbackQueue* queue)
     return;
   }
 
-  ros::WallDuration timeout(0.1f);
+  ros::WallDuration timeout(0.01f);
 
   if (!queue)
   {
@@ -188,7 +188,7 @@ void AsyncSpinnerImpl::threadFunc()
 
   CallbackQueue* queue = callback_queue_;
   bool use_call_available = thread_count_ == 1;
-  WallDuration timeout(0.1);
+  WallDuration timeout(0.01);
 
   while (continue_ && nh_.ok())
   {
